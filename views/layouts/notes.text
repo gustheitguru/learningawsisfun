@@ -1,0 +1,22 @@
+//put in fs handlebars
+
+<br>
+<br>
+<!--will print out [object Object]-->
+{{term}}
+<br>
+<br>
+<br>
+<!--this will print out JSON and step throw all of the return-->
+<div> foo from object</div>
+{{#each term}}
+	{{@key}} | {{this}}
+{{/each}}
+<br>
+
+___________________
+
+index.js 
+
+add to res.render 
+term: foo,

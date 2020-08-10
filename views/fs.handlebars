@@ -1,9 +1,13 @@
 <h1>Flash Card Page</h1>
 
-<br><br>
+<br>
+<br>
 <strong>Random Number = </strong>{{items}}
-<br><br>
 
-{{#each term}}
-	{{@key}} {{this}}
-{{/each}}	
+<br>
+<br>
+<div> Text from object</div>
+{{#each text}}
+	{{@key}} ) <br> {{this}} <br><br>
+{{/each}}
+<br>

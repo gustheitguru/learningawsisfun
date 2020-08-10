@@ -28,6 +28,7 @@ let termAdd = mongoose.model('termAdd', termSchema)
 
 
 // Get function for all items in mongodb
+/*
 function allItems(all) {
 	let allTerms = []
 	termAdd.find({}, 'term', (err, term) => {
@@ -39,7 +40,15 @@ function allItems(all) {
 			console.log(allTerms, 'function allTerms')	
 			//Question is how to I get this JSON to save to a VAR or be passed to another function
 		});
-};
+}; */
+
+async function getAllTerms() {
+    let allTerms = []
+    const fetchedTerms = await termAdd.find({}, '')
+    fetchedTerms.forEach(fetchedTerm => allTerms.push(fetchedTerm))
+    // console.log(allTerms, 'getAllTerms')
+    return allTerms
+}
 
 
 app.engine('handlebars', exphbs());
@@ -59,44 +68,44 @@ app.get('/rs.html', (req, res) => {
 
 app.get('/fs.html', (req, res) => {
 
-	console.log('___________');
-	console.log(res.statusCode);
+	// console.log('___________');
+	// console.log(res.statusCode);
 	
-
-function getTerms() {
-	
-	let allTerms = []
-	termAdd.find({}, '_id', (err, term) => {
-			
-			term.map((term) => {
-				allTerms.push(term)
-				// return allTerms
-			});
-			//this works to print out to console.
-			console.log(allTerms, 'getTerms')
-			// console.log(foo)
-		});
-	};
+	let foo = {foo: "bar"} //test JSON return
 	
 	
 	if (res.statusCode === 200) {
-		let id = [];
-		allItems()
-		getTerms()
-		console.log('200 statusCode')
-		console.log(id)
-	}
+		
+		let newTerm2 = []
 
+		getAllTerms().then(value => {
+			// console.log('Terms', value)
+			// console.log('Number of Terms', value.length)
+			for(var i = 0; i < value.length; i++) {
+				newTerm2.push(value[i]);
+				// console.log(value[i], 'foo');
+				// console.log('*****************')
+
+			}
+	
+   			 
 		//Random Number Generator
-		let ranNum = Math.floor((Math.random() * 10) + 1);
-		console.log('random number = ',ranNum);
+			let ranNum = Math.floor((Math.random() * 10) + 1);
+			console.log('random number = ',ranNum);
+			console.log('***********************');	
 
- 		res.render('fs', {
-	    	flashCard : 'Test Card',
-	    	items: ranNum,
-	    	// term: allTerms
-	    });
- 	
+   			res.render('fs', {
+		    	items: ranNum,
+		    	text: newTerm2
+	    		});
+
+ 			});
+	
+	};
+
+		
+
+ 		
 });
 
 
