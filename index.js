@@ -1,8 +1,9 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
-var app = express();
+const express = require('express');
+const exphbs  = require('express-handlebars');
+const app = express();
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
+const moment = require('moment')
 
 
 const mongoose = require('mongoose');
@@ -25,7 +26,22 @@ let termSchema = new mongoose.Schema({
 //Term for mongoDB Call
 let termAdd = mongoose.model('termAdd', termSchema)
 
- 
+
+// Get function for all items in mongodb
+function allItems(all) {
+	let allTerms = []
+	termAdd.find({}, 'term', (err, term) => {
+			
+			term.map((term) => {
+				allTerms.push(term)
+			});
+			//this works to print out to console.
+			console.log(allTerms, 'function allTerms')	
+			//Question is how to I get this JSON to save to a VAR or be passed to another function
+		});
+};
+
+
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
  
@@ -42,14 +58,46 @@ app.get('/rs.html', (req, res) => {
 });
 
 app.get('/fs.html', (req, res) => {
-    res.render('fs', {
-    	flashCard : 'Test Card'
-    });
+
+	console.log('___________');
+	console.log(res.statusCode);
+	
+
+function getTerms() {
+	
+	let allTerms = []
+	termAdd.find({}, '_id', (err, term) => {
+			
+			term.map((term) => {
+				allTerms.push(term)
+				// return allTerms
+			});
+			//this works to print out to console.
+			console.log(allTerms, 'getTerms')
+			// console.log(foo)
+		});
+	};
+	
+	
+	if (res.statusCode === 200) {
+		let id = [];
+		allItems()
+		getTerms()
+		console.log('200 statusCode')
+		console.log(id)
+	}
+
+		//Random Number Generator
+		let ranNum = Math.floor((Math.random() * 10) + 1);
+		console.log('random number = ',ranNum);
+
+ 		res.render('fs', {
+	    	flashCard : 'Test Card',
+	    	items: ranNum,
+	    	// term: allTerms
+	    });
+ 	
 });
-
-
-
-
 
 
 //listening on port to run engine
