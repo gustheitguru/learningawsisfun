@@ -1,1 +1,65 @@
-<h1>Home page</h1>
+<h1>AWS Flash Card</h1>
+
+<div class="alert alert-dark" role="alert">
+  <h4 class="alert-heading"><strong>Topic: </strong>{{fsTopic}}</h4>
+  <h2 class="text-center"><strong>Term: </strong>{{fsTerm}}</h2>
+  <hr>
+  
+<!-- under the line for definition-->
+<div class="container" >
+
+
+<p>
+  <!-- Button for Definition -->
+  <a class="btn btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Definition
+  </a>
+<!-- Button to call next term -->
+  <a class="btn btn-secondary" href="/">Next Term</a>
+
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {{fsDef}}
+  </div>
+</div>
+
+</div>
+
+
+<div>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+</div>
+
+
+
+
+
+
+<!--
+<br>
+<br>
+<strong>Random Card = </strong>{{items}}
+
+<br>
+<strong>Random Flash Card:</strong>
+<br><br>
+<strong>Topic: </strong>{{fsTopic}}
+<br>
+<strong>Term: </strong>{{fsTerm}}
+<br>
+<strong>Definition: </strong>{{fsDef}}
+<br>
+<br>
+<br>
+<br>
+<strong>Text from object:</strong>
+<br>
+<br> 
+{{#each text}}
+	<strong>Key:</strong> {{@key}} <strong> |*| Card</strong> {{this}} <br><br>
+{{/each}}
+<br>
+-->

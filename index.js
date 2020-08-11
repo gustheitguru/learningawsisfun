@@ -54,19 +54,11 @@ async function getAllTerms() {
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
  
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/about.html', (req, res) => {
-    res.render('about');
-});
-
-app.get('/rs.html', (req, res) => {
-    res.render('rs');
-});
-
 app.get('/fs.html', (req, res) => {
+    res.render('fs');
+});
+
+app.get('/', (req, res) => {
 
 	// console.log('___________');
 	// console.log(res.statusCode);
@@ -88,10 +80,10 @@ app.get('/fs.html', (req, res) => {
 				// console.log('*****************')
 
 			}
-			console.log('                       ');	
-			console.log('***********************');	
-			console.log('***********************');	
-			// console.log(newTerm2, 'newTerm2')
+			// console.log('                       ');	
+			// console.log('***********************');	
+			// console.log('***********************');	
+			// // console.log(newTerm2, 'newTerm2')
 
 			// console.log('Array Length = ', newTerm2.length)	
 
@@ -113,7 +105,7 @@ app.get('/fs.html', (req, res) => {
 
 
 		//return to page	
-   			res.render('fs', {
+   			res.render('index', {
 		    	fsTopic: fs.topic,
 		    	fsTerm: fs.term,
 		    	fsDef: fs.def

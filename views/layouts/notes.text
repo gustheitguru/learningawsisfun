@@ -1,5 +1,8 @@
 //put in fs handlebars
 
+this was a muilti page app. But it makes more sense to do it as a single page card app and link to my person site. But this is a great start for showing how to pull items from DB's
+
+
 <br>
 <br>
 <!--will print out [object Object]-->
