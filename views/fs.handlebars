@@ -2,11 +2,41 @@
 
 <div class="alert alert-dark" role="alert">
   <h4 class="alert-heading"><strong>Topic: </strong>{{fsTopic}}</h4>
-  <p><strong>Term: </strong>{{fsTerm}}</p>
+  <h2 class="text-center"><strong>Term: </strong>{{fsTerm}}</h2>
   <hr>
-  <p<b>Definition: </b></p>
-  <p>{{fsDef}}</p>
+  
+<!-- under the line for definition-->
+<div class="container" >
+
+
+<p>
+  <!-- Button for Definition -->
+  <a class="btn btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Definition
+  </a>
+<!-- Button to call next term -->
+  <a class="btn btn-secondary" href="fs.html">Next Term</a>
+
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {{fsDef}}
+  </div>
 </div>
+
+</div>
+
+
+<div>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+</div>
+
+
+
+
+
 
 <!--
 <br>

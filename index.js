@@ -88,33 +88,32 @@ app.get('/fs.html', (req, res) => {
 				// console.log('*****************')
 
 			}
+			console.log('                       ');	
 			console.log('***********************');	
 			console.log('***********************');	
 			// console.log(newTerm2, 'newTerm2')
 
-			console.log('Array Length = ', newTerm2.length)	
+			// console.log('Array Length = ', newTerm2.length)	
 
 		
 	
    			 
 		//Random Number Generator
 			let ranNum = Math.floor((Math.random() * newTerm2.length));
-			console.log('random number = ',ranNum);
+			// console.log('random number = ',ranNum);
 			
 
 		//single flash card	
 			let fs = newTerm2[ranNum]
-			console.log(fs, 'flash card')
+			// console.log(fs, 'flash card')
 
 		//breaking up flash card into a new array ","
 			let newArray = fs.term
-			console.log(newArray)
+			// console.log(newArray)
 
 
 		//return to page	
    			res.render('fs', {
-		    	items: ranNum,
-		    	text: newTerm2,
 		    	fsTopic: fs.topic,
 		    	fsTerm: fs.term,
 		    	fsDef: fs.def
@@ -123,10 +122,7 @@ app.get('/fs.html', (req, res) => {
  			});
 	
 	};
-
-		
-
- 		
+	
 });
 
 
