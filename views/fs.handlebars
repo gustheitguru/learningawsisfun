@@ -1,13 +1,35 @@
 <h1>Flash Card Page</h1>
 
+<div class="alert alert-dark" role="alert">
+  <h4 class="alert-heading"><strong>Topic: </strong>{{fsTopic}}</h4>
+  <p><strong>Term: </strong>{{fsTerm}}</p>
+  <hr>
+  <p<b>Definition: </b></p>
+  <p>{{fsDef}}</p>
+</div>
+
+<!--
 <br>
 <br>
-<strong>Random Number = </strong>{{items}}
+<strong>Random Card = </strong>{{items}}
 
 <br>
+<strong>Random Flash Card:</strong>
+<br><br>
+<strong>Topic: </strong>{{fsTopic}}
 <br>
-<div> Text from object</div>
+<strong>Term: </strong>{{fsTerm}}
+<br>
+<strong>Definition: </strong>{{fsDef}}
+<br>
+<br>
+<br>
+<br>
+<strong>Text from object:</strong>
+<br>
+<br> 
 {{#each text}}
-	{{@key}} ) <br> {{this}} <br><br>
+	<strong>Key:</strong> {{@key}} <strong> |*| Card</strong> {{this}} <br><br>
 {{/each}}
 <br>
+-->

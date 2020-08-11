@@ -81,22 +81,43 @@ app.get('/fs.html', (req, res) => {
 		getAllTerms().then(value => {
 			// console.log('Terms', value)
 			// console.log('Number of Terms', value.length)
+			
 			for(var i = 0; i < value.length; i++) {
 				newTerm2.push(value[i]);
 				// console.log(value[i], 'foo');
 				// console.log('*****************')
 
 			}
+			console.log('***********************');	
+			console.log('***********************');	
+			// console.log(newTerm2, 'newTerm2')
+
+			console.log('Array Length = ', newTerm2.length)	
+
+		
 	
    			 
 		//Random Number Generator
-			let ranNum = Math.floor((Math.random() * 10) + 1);
+			let ranNum = Math.floor((Math.random() * newTerm2.length));
 			console.log('random number = ',ranNum);
-			console.log('***********************');	
+			
 
+		//single flash card	
+			let fs = newTerm2[ranNum]
+			console.log(fs, 'flash card')
+
+		//breaking up flash card into a new array ","
+			let newArray = fs.term
+			console.log(newArray)
+
+
+		//return to page	
    			res.render('fs', {
 		    	items: ranNum,
-		    	text: newTerm2
+		    	text: newTerm2,
+		    	fsTopic: fs.topic,
+		    	fsTerm: fs.term,
+		    	fsDef: fs.def
 	    		});
 
  			});
